@@ -36,10 +36,18 @@ Note: I tried with ``ISM330DLCSensor.h`` but it does not output any data
     - ``w8(reg, val)`` writes one byte to a register.
 
 #### Setup
+
 - Initializes USB serial and I²C.
 - Configures:
     - Accelerometer: ±4 g @ 104 Hz
     - Gyroscope: ±500 dps @ 104 Hz
+
+> **NOTE**: These values are taken from the [ISM330DLC Datasheet](https://www.st.com/resource/en/datasheet/ism330dlc.pdf), specifically from the “Mechanical characteristics / Sensitivity” table.
+> - **Accelerometer sensitivity** : For ±4 g, sensitivity = 0.122 mg/LSB -> 1000 / 0.122 ≈ 8192 LSB per g
+> - **Gyroscope sentisivity** : For ±500 dps, sensitivity = 17.50 mdps/LSB -> 1000 / 17.5 ≈ 65.5 LSB per dps
+>
+> Where LSB stands for Least Significant Bit
+
 
 #### Loop
 - Reads raw accelerometer and gyroscope registers.
